@@ -6,13 +6,13 @@ from scipy import append
 
 
 id_porte = np.arange(1, 201, 1) #numeros des portes
-##########
-etat_porte = []         # simulation des evenements, 1=evenmnt(porte ouverte), 0=fermée
+################################ simulation des evenements, 1=evenmnt(porte ouverte), 0=fermée
+etat_porte = []         
 for i in range(1000):
     etat_porte.append( randint(0,1) )
 etat_porte
-###########
-porte = []                           # simulation des portes
+############################# simulation des portes
+porte = []                           
 for i in range(1000):
     porte.append( randint(1,200) )
 porte
@@ -21,14 +21,14 @@ heure = []
 for i in range(1000):
     heure.append(randint(1,86400))
 heure
-################################################## essai
+############################################## simulation des heures
 Heur=[]
 for i in range(1000):
     Heur.append(strftime('%H %M %S', gmtime((randint(1,86400)))))
 Heur.sort()
 Heur
 len(Heur)
-##############
+######################################### creation jeu de donnees
 donnee = append(porte, etat_porte).T
 donnees = append(donnee,Heur)
 M=donnees.reshape(1000,3)
