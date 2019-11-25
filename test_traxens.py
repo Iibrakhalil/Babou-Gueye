@@ -32,5 +32,15 @@ len(Heur)
 donnee = append(porte, etat_porte).T
 donnees = append(donnee,Heur)
 M=donnees.reshape(1000,3)
-
-#a= np.savetxt("donnees",M, delimiter="\t")
+################################################ j'essaie de voir le nombre d'ouverture des portes et quelle porte a plus été utilisée
+porte.sort()
+vu = [False]*len(porte)                            
+for i in range(len(porte)):
+    if not vu[i]:
+            compteur = 0
+            for j in range(i, len(porte)):
+                if porte[j] == porte[i]:
+                    vu[j] = True
+                    compteur += 1
+            print(" La porte numéro " + str(porte[i]) + " a été ouverte " + str(compteur) + " fois dans la journée ")
+            
