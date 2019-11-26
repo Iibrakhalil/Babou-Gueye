@@ -32,15 +32,30 @@ len(Heur)
 donnee = append(porte, etat_porte).T
 donnees = append(donnee,Heur)
 M=donnees.reshape(1000,3)
-################################################ j'essaie de voir le nombre d'ouverture des portes et quelle porte a plus été utilisée
-porte.sort()
-vu = [False]*len(porte)                            
-for i in range(len(porte)):
-    if not vu[i]:
-            compteur = 0
-            for j in range(i, len(porte)):
-                if porte[j] == porte[i]:
-                    vu[j] = True
-                    compteur += 1
-            print(" La porte numéro " + str(porte[i]) + " a été ouverte " + str(compteur) + " fois dans la journée ")
-            
+
+####################################################################### Etape 2 : analyse des evenements
+                        
+for i in range(1,201,1):
+    compteur = 0
+    for j in range(len(porte)):
+            if porte[j] == i:
+                compteur += 1
+    print(" La porte numéro " + str(i) + " a été ouverte " + str(compteur) + " fois dans la journée " )
+    
+                                ############################################################### Ouverture de l'interieur
+for i in range(1,201,1):
+    compteur = 0
+    for j in range(len(porte)):
+            if porte[j] == i and evmt[j] == 1:
+                compteur += 1
+    print(" La porte numéro " + str(i) + " a été ouverte de l'interieur " + str(compteur) + " fois dans la journée ")
+
+                          ############################################################################## ouverture de l'exterieur
+                          
+for i in range(1,201,1):
+    compteur = 0
+    for j in range(len(porte)):
+            if porte[j] == i and evmt[j] == 2:
+                compteur += 1
+    print(" La porte numéro " + str(i) + " a été ouverte de l'exterieur " + str(compteur) + " fois dans la journée ")
+
